@@ -45,6 +45,7 @@
 
 <hr>
 
+{% if user = object.creator %}
 <div class="btn-group">
     <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Actions" %} <span class="caret"></span></a>
     <ul class="dropdown-menu">
@@ -54,6 +55,7 @@
         <li><a href="{% url 'cosinnus:note:comment' group=group.slug slug=object.slug %}"><i class="icon-comment"></i> {% trans "Comment" %}</a></li>
     </ul>
 </div>
+{% endif %}
 
 {% if object.video %}
 <hr/>
