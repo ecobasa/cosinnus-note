@@ -7,6 +7,7 @@ from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 
+from easy_thumbnails.fields import ThumbnailerImageField
 from embed_video.fields import EmbedVideoField
 
 from cosinnus.utils.functions import unique_aware_slugify
@@ -20,6 +21,13 @@ class Note(BaseTaggableObjectModel):
 
     text = models.TextField(_('Text'))
     video = EmbedVideoField(blank=True, null=True)
+    image = ThumbnailerImageField(
+        verbose_name=_('Image'),
+        help_text=_('Image to accompany the post, minimum resolution 1200x400'),
+        upload_to='blog_images',
+        null=True,
+        blank=True)
+
 
     class Meta(BaseTaggableObjectModel.Meta):
         ordering = ['-created', 'title']

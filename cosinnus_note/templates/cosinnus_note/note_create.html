@@ -16,7 +16,7 @@
 {% block subnav_add_right %}{% endblock %}
 
 {% block content %}
-<form action="." method="post" class="form-horizontal">
+<form action="." method="post" class="form-horizontal" enctype="multipart/form-data">
     {% csrf_token %}
     <fieldset>
         {% bootstrap_form form %}

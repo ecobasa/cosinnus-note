@@ -2,6 +2,7 @@
 {% load i18n %}
 {% load cosinnus_tags %}
 {% load embed_video_tags %}
+{% load thumbnail %}
 
 {% block page_title %}{{ object.title }}{% endblock %}
 
@@ -24,11 +25,12 @@
 {% endblock %}
 
 {% block content %}
+<img src="{{ object.image|thumbnail_url:"note_large" }}" alt="{% trans "Header" %}" />
 <h3>{{ object.title }}</h3>
 <div class="media">
   <a class="pull-left" href="#">
     {% if object.creator.cosinnus_profile.avatar %}
-      <img class="media-object avatar avatar-medium" src="{{ object.creator.cosinnus_profile.avatar.url }}">
+      <img class="media-object avatar avatar-medium" src="{{ object.creator.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
     {% else %}
       <img class="media-object avatar avatar-medium" src="http://placehold.it/64x64">
     {% endif %}
@@ -73,7 +75,7 @@
   <div class="media media-indent-small" id="comment-{{ comment.pk }}">
     <a class="pull-left" href="#">
       {% if comment.author.cosinnus_profile.avatar %}
-        <img class="media-object avatar avatar-small" src="{{ comment.author.cosinnus_profile.avatar.url }}">
+        <img class="media-object avatar avatar-small" src="{{ comment.author.cosinnus_profile.avatar|thumbnail_url:"avatar_small" }}">
       {% else %}
         <img class="media-object avatar avatar-small" src="http://placehold.it/32x32">
       {% endif %}

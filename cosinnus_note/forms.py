@@ -16,7 +16,7 @@ class _NoteForm(GroupKwargModelFormMixin, UserKwargModelFormMixin,
 
     class Meta:
         model = Note
-        fields = ('title', 'text', 'tags', 'video',)
+        fields = ('title', 'text', 'tags', 'video', 'image',)
 
 
 #: A django-multiform :class:`MultiModelForm`. Includs support for `group` and
