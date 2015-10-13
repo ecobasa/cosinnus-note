@@ -20,7 +20,7 @@ class Note(BaseTaggableObjectModel):
         ('title', 'title'), ('creator', 'creator'), ('created', 'created'),
     ]
 
-    text = models.HTMLField(_('Text'), blank=True)
+    text = HTMLField(_('Text'), blank=True)
     video = EmbedVideoField(blank=True, null=True)
     image = ThumbnailerImageField(
         verbose_name=_('Image'),
