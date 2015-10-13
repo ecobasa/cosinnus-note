@@ -9,6 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from easy_thumbnails.fields import ThumbnailerImageField
 from embed_video.fields import EmbedVideoField
+from djangocms_text_ckeditor.fields import HTMLField
 
 from cosinnus.utils.functions import unique_aware_slugify
 from cosinnus.models.tagged import BaseTaggableObjectModel
@@ -19,7 +20,7 @@ class Note(BaseTaggableObjectModel):
         ('title', 'title'), ('creator', 'creator'), ('created', 'created'),
     ]
 
-    text = models.TextField(_('Text'))
+    text = models.HTMLField(_('Text'), blank=True)
     video = EmbedVideoField(blank=True, null=True)
     image = ThumbnailerImageField(
         verbose_name=_('Image'),

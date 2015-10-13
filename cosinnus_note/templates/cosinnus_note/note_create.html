@@ -6,6 +6,10 @@
 
 {% block extrahead %}
 <link rel="stylesheet" href="{% static 'css/vendor/jquery-ui-autocomplete.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/cms.ckeditor.css' %}">
+<link rel="stylesheet" href="{% static 'ckeditor/skins/moono/editor.css' %}">
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/cms.ckeditor.js' %}"></script>
 {% endblock %}
 
 {% block breadcrumbs %}
@@ -32,7 +36,7 @@
 
 {% block extrafooter %}
 {{ block.super }}
-<script type="text/javascript" src="{% static "js/vendor/jquery-ui-autocomplete.min.js" %}"></script>
+ <script type="text/javascript" src="{% static "js/vendor/jquery-ui-autocomplete.min.js" %}"></script>
 <script type="text/javascript">
 $("#id_title").focus();
 var availableTags = [
@@ -42,4 +46,5 @@ var availableTags = [
 ];
 </script>
 <script type="text/javascript" src="{% static "js/vendor/jquery.ui.autocomplete-tags.js" %}"></script>
+
 {% endblock %}
